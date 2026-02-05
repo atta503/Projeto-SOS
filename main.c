@@ -3,6 +3,9 @@
 #include "freertos/task.h"
 #include "driver/gpio.h"
 
+#define ponto 200
+#define linha 800
+
 void pisca(int tempo){
   gpio_set_level(2,1);
     vTaskDelay(tempo / portTICK_PERIOD_MS);
@@ -10,16 +13,16 @@ void pisca(int tempo){
     vTaskDelay(250 / portTICK_PERIOD_MS);
 }
 void S(){
-  pisca(200);
-    pisca(200);
-    pisca(200);
+  pisca(ponto);
+    pisca(ponto);
+    pisca(ponto);
     printf("S\n"); //Primeiro carácter
 }
 void O(){
    vTaskDelay(250 / portTICK_PERIOD_MS);
-    pisca(800);
-    pisca(800);
-    pisca(800);
+    pisca(linha);
+    pisca(linha);
+    pisca(linha);
     printf("O\n"); //Segundo carácter
 }
 void app_main() {
@@ -32,5 +35,4 @@ void app_main() {
    vTaskDelay(250 / portTICK_PERIOD_MS);
     printf("  \n"); //Primeiro carácter
   }
-    
 }
